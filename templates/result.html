@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-    <<link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 	<div class="results">
 
 
-		
+	<p>Prediction Identified for <b>{{input}}</b>: </p>
 	{% if prediction == "pilot_issue"%}
 	<h2 style="color:red;">Its a pilot Issue!!!</h2>
 	{% elif  prediction == "environment_issue"%}
@@ -28,7 +28,7 @@
 	<h2 style="color:blue;">Its a Flight Issue!!!</h2>
 	{% endif %}
 
+	<a href="{{ url_for('home') }}">Go Back to Main Page & Predict further more!!!</a>
 	</div>
-
 </body>
 </html>
