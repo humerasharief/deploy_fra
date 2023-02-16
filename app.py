@@ -52,7 +52,7 @@ def predict_fun():
         my_prediction = clf.predict(vect)
         print(my_prediction)
 	
-    return render_template('result.html',prediction = listToString(my_prediction))
+    return render_template('result.html',input = request.form['message'], prediction = listToString(my_prediction))
         
 if __name__ == '__main__':
 	app.run(host="0.0.0.0", debug=False)
