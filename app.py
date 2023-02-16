@@ -18,7 +18,14 @@ def ValuePredictor(to_predict_list):
     loaded_model = pickle.load(open("flight_risk_flask.pkl", "rb")) 
     result = loaded_model.predict(to_predict) 
     return result[0] 
-  
+    
+def listToString(s):
+   
+    # initialize an empty string
+    str1 = " "
+   
+    # return string 
+    return (str1.join(s))
 @app.route('/result', methods = ['POST']) 
 def result(): 
     if request.method == 'POST': 
@@ -45,7 +52,7 @@ def predict_fun():
         my_prediction = clf.predict(vect)
         print(my_prediction)
 	
-    return render_template('result.html',prediction = my_prediction)
+    return render_template('result.html',prediction = listToString(my_prediction))
         
 if __name__ == '__main__':
 	app.run(host="0.0.0.0", debug=False)
